@@ -1,0 +1,13 @@
+@import "../utils/mixin.scss";
+
+.buttonWrapper {
+  @include standardFlex("", flex-end);
+  flex-direction: column;
+  width: 50%;
+  &__title {
+    justify-self: end;
+    font-weight: 600;
+    font-size: 0.9em;
+    margin-bottom: 1em;
+  }
+}

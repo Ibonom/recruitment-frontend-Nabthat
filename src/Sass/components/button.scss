@@ -1,0 +1,23 @@
+@import "../utils/mixin.scss";
+@import "../utils/variables.scss";
+
+.button {
+  color: $txtGray;
+  text-align: center;
+  padding: 0.5em 1em;
+  border: 1px solid rgba($color: #ffff, $alpha: 0.5);
+  width: 80%;
+  margin: 0.5em;
+  border-radius: 1px;
+  background-color: transparent;
+  font-size: 0.9em;
+  cursor: pointer;
+  &--footer {
+    @extend .button;
+    border: 1px solid rgba($color: #ffff, $alpha: 0.2);
+    width: 40%;
+    height: fit-content;
+    font-weight: 600;
+    font-size: 0.8em;
+  }
+}

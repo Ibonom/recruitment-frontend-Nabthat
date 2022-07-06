@@ -1,0 +1,36 @@
+@import "../utils/mixin.scss";
+@import "../utils/variables.scss";
+
+.WrapperFooterAnimation {
+  color: rgba($color: #ffffff, $alpha: 0.2);
+  font-weight: 200;
+  padding: 0.2em;
+  margin: 0.3em;
+  position: relative;
+  &:hover {
+    color: rgba($color: #ffffff, $alpha: 0.5);
+  }
+  &__border {
+    aspect-ratio: 1/1;
+    border: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 70%;
+    &:hover {
+      border-color: $goldBorder;
+      animation: spin 2s linear;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

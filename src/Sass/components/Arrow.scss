@@ -1,0 +1,21 @@
+@import "../utils/variables.scss";
+.arrow {
+  border: solid rgba($color: #ffff, $alpha: 0.5);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  margin: 0 0.4em;
+  &--down {
+    @extend .arrow;
+    transform: rotate(45deg);
+  }
+  &--up {
+    @extend .arrow;
+    transform: rotate(-135deg);
+  }
+  &--right {
+    @extend .arrow;
+    transform: rotate(-45deg);
+    border-color: black;
+  }
+}

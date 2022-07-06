@@ -1,0 +1,12 @@
+@import "../utils/variables.scss";
+@import "../utils/mixin.scss";
+.footer {
+  position: absolute;
+  bottom: 0;
+  @include standardFlex(space-between, center);
+  background-color: $darkerGray;
+  height: 15vh;
+  min-width: 95%;
+  @include wrapperPadding;
+  border-top: 1px solid black;
+}

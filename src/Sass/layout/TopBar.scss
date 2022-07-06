@@ -1,0 +1,25 @@
+@import "../utils/variables.scss";
+@import "../utils/mixin.scss";
+
+.navContainer {
+  background-color: $black;
+  height: 10vh;
+  @include standardFlex(space-between, center);
+  @include wrapperPadding;
+}
+
+.IconContainer {
+  padding: 5px;
+}
+
+.headingTitleContainer {
+  padding: 5px;
+
+  &__word {
+    font-weight: 300;
+    font-size: 0.9em;
+    &--txtBold {
+      font-weight: 600;
+    }
+  }
+}

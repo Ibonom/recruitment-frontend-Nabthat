@@ -1,0 +1,12 @@
+@import "../utils/mixin.scss";
+.mainSection {
+  @include wrapperPadding;
+  &__h1 {
+    font-size: 1em;
+    font-weight: 300;
+    text-align: center;
+  }
+  &__line {
+    width: 20%;
+  }
+}

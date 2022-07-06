@@ -1,0 +1,15 @@
+@import "../utils/mixin.scss";
+.dynamicTextSection {
+  @include wrapperPadding;
+  &__tittle {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 0.9em;
+  }
+  &__txt {
+    text-align: center;
+    color: rgba($color: #ffffff, $alpha: 0.3);
+    font-size: 0.7em;
+  }
+}
