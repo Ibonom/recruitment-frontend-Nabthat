@@ -3,10 +3,40 @@
 .footer {
   position: absolute;
   bottom: 0;
-  @include standardFlex(space-between, center);
   background-color: $darkerGray;
   height: 15vh;
-  min-width: 95%;
-  @include wrapperPadding;
+  width: 100%;
+  @include standardFlex('',center);
+  @include for-tablet-portrait-up {
+  }
+  &__wrapper {
+    @include wrapperPadding;
+    @include standardFlex(space-between, center);
+    width: 100%;
+  }
+
   border-top: 1px solid black;
+  &__companyName {
+    color: rgba($color: #ffff, $alpha: 0.2);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    visibility: hidden;
+    width: 20%;
+    @include for-tablet-portrait-up {
+      visibility: visible;
+    }
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid rgba($color: #ffff, $alpha: 0.2);
+    }
+    &:not(:empty)::before {
+      margin-right: 0.25em;
+    }
+    &:not(:empty)::after {
+      margin-left: 0.25em;
+    }
+  }
 }

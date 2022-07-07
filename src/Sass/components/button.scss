@@ -15,9 +15,14 @@
   &--footer {
     @extend .button;
     border: 1px solid rgba($color: #ffff, $alpha: 0.2);
-    width: 40%;
+    width: 20%;
     height: fit-content;
     font-weight: 600;
     font-size: 0.8em;
+    max-width: 300px ;
+    @include for-tablet-portrait-up {
+      margin-right: 3%;
+      width: 20%;
+    }
   }
 }

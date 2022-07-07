@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "../../Sass/components/radioInput.scss";
+import "../../Sass/layout/radioInput.scss";
 import DataContext from "../../Context/DataProvider";
 
 const RadioSection = () => {
@@ -12,21 +12,31 @@ const RadioSection = () => {
       <label className="radioBlock__tittle">BLOK PIERWSZY</label>
       <div onChange={radioHandler}>
         <p>
-          <label className="custom-radio-btn">
+          <label className="radioContainer">
             <input type="radio" name="text" id="optionNr1" value="first" />
-            <span className="checkmark"></span>
-            <label htmlFor="optionNr1" className="label">
+            <span className="radioContainer__checkmark"></span>
+            <label htmlFor="optionNr1" className="radioContainer__label">
               Opcja pierwsza
             </label>
           </label>
         </p>
         <p>
-          <input type="radio" name="text" id="optionNr2" value="second" />
-          <label htmlFor="optionNr2">Opcja druga</label>
+          <label className="radioContainer">
+            <input type="radio" name="text" id="optionNr2" value="second" />
+            <span className="radioContainer__checkmark"></span>
+            <label htmlFor="optionNr2" className="radioContainer__label">
+              Opcja druga
+            </label>
+          </label>
         </p>
         <p>
-          <input type="radio" name="text" id="optionNr3" value="random" />
-          <label htmlFor="optionNr3">Opcja losowa</label>
+          <label className="radioContainer">
+            <input type="radio" name="text" id="optionNr3" value="random" />
+            <span className="radioContainer__checkmark"></span>
+            <label htmlFor="optionNr3" className="radioContainer__label">
+              Opcja losowa
+            </label>
+          </label>
         </p>
       </div>
     </section>

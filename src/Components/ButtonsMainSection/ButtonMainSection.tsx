@@ -28,8 +28,10 @@ const ButtonMainSection = () => {
   return (
     <section className="buttonWrapper">
       <label className="buttonWrapper__title">BLOK DRUGI</label>
-      <Button text="ZASTĄP" onClick={onClick1} />
-      <Button text="DOKLEJ" onClick={onClick2} />
+      <div className="buttonWrapper__buttons">
+        <Button text="ZASTĄP" onClick={onClick1} />
+        <Button text="DOKLEJ" onClick={onClick2} />
+      </div>
     </section>
   );
 };

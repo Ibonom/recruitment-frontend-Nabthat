@@ -29,7 +29,10 @@
   align-items: $column;
 }
 @mixin wrapperPadding {
-  padding: 0 0.5em;
+  padding: 0 0.8em;
+  @include for-tablet-portrait-up{
+    padding: 0 1.5em;
+  }
 }
 @mixin resetList {
   list-style: none;

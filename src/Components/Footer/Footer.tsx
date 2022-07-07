@@ -6,10 +6,14 @@ import ButtonSCSS from "../ButtonWithoutJS/ButtonSCSS";
 const Footer = () => {
   return (
     <footer className="footer">
-      <AnimatedBox />
-      <ButtonSCSS />
+      <section className="footer__wrapper">
+        <AnimatedBox />
+        <span className="footer__companyName">nabthat</span>
+        <ButtonSCSS />
+      </section>
     </footer>
   );
 };
 
 export default Footer;
+

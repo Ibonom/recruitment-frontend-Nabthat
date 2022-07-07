@@ -7,21 +7,27 @@
   padding: 0.2em;
   margin: 0.3em;
   position: relative;
+  width: 15%;
   &:hover {
     color: rgba($color: #ffffff, $alpha: 0.5);
   }
   &__border {
-    aspect-ratio: 1/1;
     border: 1px solid rgba($color: #ffffff, $alpha: 0.2);
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    width: 70%;
+    height: 100%;
+    aspect-ratio: 1/1;
     &:hover {
       border-color: $goldBorder;
       animation: spin 2s linear;
+    }
+  }
+  &__txt{
+    @include for-tablet-portrait-up{
+      font-size: 1.3em;
     }
   }
 }

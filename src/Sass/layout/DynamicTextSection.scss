@@ -1,15 +1,29 @@
 @import "../utils/mixin.scss";
 .dynamicTextSection {
   @include wrapperPadding;
+  width: 70%;
+  margin: 0 auto;
+  @include for-tablet-portrait-up {
+    margin: 0;
+    width: 30%;
+  }
   &__tittle {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     font-size: 0.9em;
+    margin: 10% auto;
+    @include for-tablet-portrait-up {
+      font-size: 1.1em;
+      margin: 0 auto;
+    }
   }
   &__txt {
     text-align: center;
     color: rgba($color: #ffffff, $alpha: 0.3);
     font-size: 0.7em;
+    @include for-tablet-portrait-up {
+      font-size: 0.8em;
+    }
   }
 }

@@ -2,11 +2,15 @@
 .mainSection {
   @include wrapperPadding;
   &__h1 {
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: 300;
     text-align: center;
+    @include for-tablet-portrait-up{
+      font-size: 2em;
+    }
   }
   &__line {
     width: 20%;
+    margin-bottom: 15%;
   }
 }

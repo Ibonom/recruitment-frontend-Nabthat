@@ -1,4 +1,6 @@
 @import "../utils/mixin.scss";
 .middleWrapper {
+  margin-top: 5%;
   @include standardFlex(space-between);
+  flex-wrap: wrap;
 }

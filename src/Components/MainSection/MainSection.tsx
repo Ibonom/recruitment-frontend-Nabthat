@@ -12,8 +12,8 @@ const MainSection = () => {
       <section className="middleWrapper">
         <RadioSection />
         <ButtonMainSection />
+        <TextSection />
       </section>
-      <TextSection />
     </main>
   );
 };

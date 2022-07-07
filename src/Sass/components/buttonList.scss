@@ -3,17 +3,23 @@
 .listWrapper {
   @include resetList();
   background-color: white;
+  box-shadow: 0px -7px 12px 5px rgb(15, 16, 17);
   position: absolute;
   bottom: 0;
-  right: 5%;
   padding: 0.3em 0.5em;
   z-index: -1;
+  height: fit-content;
+  @include for-tablet-portrait-up {
+    padding: 0.7em 1.4em;
+  }
 }
 
 #buttonSCSS:checked + .listWrapper {
-  animation: moveElement 0.7s linear;
-  transform: translateY(-190%);
+  top: 0;
+  right: 5%;
+  transform: translateY(-100%);
   z-index: 0;
+  animation: moveElement 0.7s linear;
 }
 
 @keyframes moveElement {
@@ -29,7 +35,7 @@
     z-index: -1;
   }
   100% {
-    transform: translateY(-190%);
+    transform: translateY(-100%);
     z-index: 0;
   }
 }
@@ -42,8 +48,12 @@
     border: none;
     cursor: pointer;
     font-size: 0.8em;
+    @include for-tablet-portrait-up {
+      font-size: 0.9em;
+    }
     font-weight: 600;
     padding: 0.2em;
+    margin-bottom: 0.2em;
     &:hover {
       color: $orange;
     }

@@ -4,10 +4,27 @@
   @include standardFlex("", flex-end);
   flex-direction: column;
   width: 50%;
+  @include for-tablet-portrait-up{
+    width: 30%;
+  }
+
   &__title {
     justify-self: end;
     font-weight: 600;
-    font-size: 0.9em;
     margin-bottom: 1em;
+    @include for-tablet-portrait-up{
+      width: 100%;
+      text-align: center;
+      font-size: 1.1em;
+    }
+  }
+  &__buttons{
+    @include standardFlex('',center);
+    flex-direction: column;
+    width: 80%;
+    @include for-tablet-portrait-up{
+      flex-direction: row;
+      width: 100%;
+    }
   }
 }

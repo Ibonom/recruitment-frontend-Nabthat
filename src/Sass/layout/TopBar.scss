@@ -9,17 +9,50 @@
 }
 
 .IconContainer {
-  padding: 5px;
+  padding: 1em;
+  height: 85%;
+  width: 15%;
+  button {
+    all: unset;
+    height: 100%;
+    width: 100%;
+    svg {
+      width: 90%;
+      height: 100%;
+      cursor: pointer;
+      @include for-tablet-portrait-up {
+        width: 50%;
+      }
+      @include for-tablet-landscape-up {
+        width: 35%;
+      }
+      @include for-big-desktop-up {
+        width: 25%;
+      }
+    }
+  }
+
+  svg:hover {
+    border-radius: 50%;
+    background-color: $orange;
+  }
 }
 
 .headingTitleContainer {
-  padding: 5px;
-
   &__word {
     font-weight: 300;
     font-size: 0.9em;
+    @include for-tablet-portrait-up {
+      font-size: 1.2em;
+    }
     &--txtBold {
       font-weight: 600;
+    }
+    &--hiddenName {
+      text-align: end;
+      @include for-tablet-portrait-up {
+        margin: 0.3em;
+      }
     }
   }
 }

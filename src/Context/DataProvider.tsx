@@ -14,6 +14,9 @@ interface IstateContext {
   validationFunction: (object: textObject, add: boolean) => void;
   randomAddFunction: () => void;
   randomSwitchFunction: () => void;
+  name: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+  reset: () => void;
 }
 
 const defaultState = {
@@ -21,9 +24,13 @@ const defaultState = {
   data: [],
   setRadio: () => {},
   showData: [],
+  setShowData: () => {},
   validationFunction: (object: textObject, add: boolean) => {},
   randomAddFunction: () => {},
   randomSwitchFunction: () => {},
+  name: "",
+  setName: () => {},
+  reset: () => {},
 };
 
 const DataContext = createContext<IstateContext>(defaultState);
@@ -37,6 +44,7 @@ export const DataProvider: React.FC<{
   const [radio, setTextRadio] = useState<string>("");
   const [showData, setShowData] = useState<textObject[]>([]);
   const [possibleRandom, setPossibleRandom] = useState<number[]>(ids);
+  const [name, setName] = useState<string>("");
 
   useEffect(() => {
     if (possibleRandom.length === 0) {
@@ -50,13 +58,8 @@ export const DataProvider: React.FC<{
         setShowData((prevState) => [...prevState, object]);
       }
     } else {
-      if (showData.length > 1) {
-        setShowData([object]);
-      } else {
-        if (showData.indexOf(object) === -1) {
-          setShowData([object]);
-        }
-      }
+      setShowData([object]);
+      setPossibleRandom(ids);
     }
   };
   const randomAddFunction = () => {
@@ -82,16 +85,25 @@ export const DataProvider: React.FC<{
       setShowData([dataJSON[randomNumber - 1]]);
     }
   };
+  const reset = () => {
+    setShowData([]);
+    setName("");
+    setPossibleRandom(ids);
+  };
+
   return (
     <DataContext.Provider
       value={{
         radio,
         data: dataJSON,
         setRadio: setTextRadio,
-        showData: showData,
+        showData,
         validationFunction,
         randomAddFunction,
         randomSwitchFunction,
+        name,
+        setName,
+        reset,
       }}
     >
       {children}

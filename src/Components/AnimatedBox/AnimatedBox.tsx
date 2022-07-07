@@ -5,7 +5,7 @@ const AnimatedBox = () => {
   return (
     <div className="WrapperFooterAnimation">
       <div className="WrapperFooterAnimation__border"></div>
-      <div>
+      <div className="WrapperFooterAnimation__txt">
         CSS <br /> IS <br /> AWESOME{" "}
       </div>
     </div>
