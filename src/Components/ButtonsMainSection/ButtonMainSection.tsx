@@ -7,21 +7,31 @@ const ButtonMainSection = () => {
   const ctx = useContext(DataContext);
 
   const onClick1 = () => {
+    if (ctx.radio === "") {
+      ctx.setWarningShow(true);
+    } else {
+      ctx.setWarningShow(false);
+    }
     if (ctx.radio === "first") {
       ctx.validationFunction(ctx.data[0], false);
     } else if (ctx.radio === "second") {
       ctx.validationFunction(ctx.data[1], false);
     } else if (ctx.radio === "random") {
-      ctx.randomFunction(false)
+      ctx.randomFunction(false);
     }
   };
   const onClick2 = () => {
-    if (ctx.radio === "first") {
-      ctx.validationFunction(ctx.data[0], true);
-    } else if (ctx.radio === "second") {
-      ctx.validationFunction(ctx.data[1], true);
-    } else if (ctx.radio === "random") {
-      ctx.randomFunction(true)
+    if (ctx.radio === "") {
+      ctx.setWarningShow(true);
+    } else {
+      ctx.setWarningShow(false);
+      if (ctx.radio === "first") {
+        ctx.validationFunction(ctx.data[0], true);
+      } else if (ctx.radio === "second") {
+        ctx.validationFunction(ctx.data[1], true);
+      } else if (ctx.radio === "random") {
+        ctx.randomFunction(true);
+      }
     }
   };
 

@@ -17,6 +17,7 @@ interface IstateContext {
   reset: () => void;
   randomFunction: (add: boolean) => void;
   warningShow: boolean;
+  setWarningShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const defaultState = {
@@ -31,6 +32,7 @@ const defaultState = {
   reset: () => {},
   randomFunction: () => {},
   warningShow: false,
+  setWarningShow: () => {},
 };
 
 const DataContext = createContext<IstateContext>(defaultState);
@@ -127,6 +129,7 @@ export const DataProvider: React.FC<{
         reset,
         randomFunction,
         warningShow,
+        setWarningShow,
       }}
     >
       {children}

@@ -1,20 +1,72 @@
 @import "../utils/variables.scss";
 @import "../utils/mixin.scss";
 .PopUp {
+}
+
+.PopUpWrapper {
+  position: fixed;
   background-color: $gray;
   border: 1px solid $orange;
-  padding: 0.5em;
-  position: fixed;
-  text-align: center;
+  @include standardFlex(center, center);
+  align-content: center;
+  width: 50vw;
+  max-width: 500px;
   @include for-tablet-portrait-up {
-    font-size: 1.1em;
-    padding: 0.8em;
+    
   }
-  
+  @include for-tablet-landscape-up{
+    gap: 0.5em;
+    padding: 0 1em;
+    width: 30%;
+  }
   &--warning {
-    @extend .PopUp;
+    @extend .PopUpWrapper;
     left: 50%;
     transform: translateX(-50%);
-    top: 0;
+    top: 2%;
+  }
+  &__closer {
+    all: unset;
+    cursor: pointer;
+    padding: 0 0.6em;
+    font-weight: 600;
+    border-radius: 50%;
+    color: rgba($color: #ffffff, $alpha: 0.2);
+    font-size: 1.3em;
+    &:hover {
+      color: rgba($color: #ffffff, $alpha: 0.7);
+      animation: color-change 0.3s linear;
+    }
+  }
+  &__text {
+    text-align: center;
+    font-size: 0.9em;
+    width: 50vw;
+    margin: 0;
+    padding: 0.5em;
+    @include for-tablet-portrait-up {
+      font-size: 1.1em;
+      padding: 1em;
+    }
+  }
+  &__tittle {
+    font-weight: 600;
+    display:block;
+    padding: 0.2em;
+    @include for-tablet-portrait-up{
+      display: inline;
+    }
+  }
+}
+
+@keyframes color-change {
+  0% {
+    color: rgba($color: #ffffff, $alpha: 0.2);
+  }
+  50% {
+    color: rgba($color: #ffffff, $alpha: 0.4);
+  }
+  100% {
+    color: rgba($color: #ffffff, $alpha: 0.7);
   }
 }
