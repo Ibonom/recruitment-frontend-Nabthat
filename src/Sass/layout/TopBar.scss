@@ -10,15 +10,13 @@
 
 .IconContainer {
   padding: 1em;
-  height: 85%;
+  height: 75%;
   width: 15%;
   button {
     all: unset;
     height: 100%;
     width: 100%;
     svg {
-      width: 90%;
-      height: 100%;
       cursor: pointer;
       @include for-tablet-portrait-up {
         width: 50%;
@@ -30,11 +28,12 @@
         width: 25%;
       }
     }
+    
   }
 
   svg:hover {
-    border-radius: 50%;
     background-color: $orange;
+    border-radius: 50%;
   }
 }
 

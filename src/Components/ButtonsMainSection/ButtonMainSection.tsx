@@ -12,7 +12,7 @@ const ButtonMainSection = () => {
     } else if (ctx.radio === "second") {
       ctx.validationFunction(ctx.data[1], false);
     } else if (ctx.radio === "random") {
-      ctx.randomSwitchFunction();
+      ctx.randomFunction(false)
     }
   };
   const onClick2 = () => {
@@ -21,7 +21,7 @@ const ButtonMainSection = () => {
     } else if (ctx.radio === "second") {
       ctx.validationFunction(ctx.data[1], true);
     } else if (ctx.radio === "random") {
-      ctx.randomAddFunction();
+      ctx.randomFunction(true)
     }
   };
 

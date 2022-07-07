@@ -9,8 +9,8 @@ const RadioSection = () => {
 
   return (
     <section className="radioBlock">
-      <label className="radioBlock__tittle">BLOK PIERWSZY</label>
       <div onChange={radioHandler}>
+        <p className="radioBlock__tittle">BLOK PIERWSZY</p>
         <p>
           <label className="radioContainer">
             <input type="radio" name="text" id="optionNr1" value="first" />

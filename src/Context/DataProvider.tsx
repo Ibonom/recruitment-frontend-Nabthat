@@ -12,11 +12,11 @@ interface IstateContext {
   setRadio: React.Dispatch<React.SetStateAction<string>>;
   showData: textObject[];
   validationFunction: (object: textObject, add: boolean) => void;
-  randomAddFunction: () => void;
-  randomSwitchFunction: () => void;
   name: string;
   setName: React.Dispatch<React.SetStateAction<string>>;
   reset: () => void;
+  randomFunction: (add: boolean) => void;
+  warningShow: boolean;
 }
 
 const defaultState = {
@@ -26,11 +26,11 @@ const defaultState = {
   showData: [],
   setShowData: () => {},
   validationFunction: (object: textObject, add: boolean) => {},
-  randomAddFunction: () => {},
-  randomSwitchFunction: () => {},
   name: "",
   setName: () => {},
   reset: () => {},
+  randomFunction: () => {},
+  warningShow: false,
 };
 
 const DataContext = createContext<IstateContext>(defaultState);
@@ -41,10 +41,11 @@ export const DataProvider: React.FC<{
   const [ids] = useState<number[]>(
     dataJSON.filter((x) => x.id > 2).map((x) => x.id)
   );
-  const [radio, setTextRadio] = useState<string>("");
+  const [radio, setRadio] = useState<string>("");
   const [showData, setShowData] = useState<textObject[]>([]);
   const [possibleRandom, setPossibleRandom] = useState<number[]>(ids);
   const [name, setName] = useState<string>("");
+  const [warningShow, setWarningShow] = useState<boolean>(false);
 
   useEffect(() => {
     if (possibleRandom.length === 0) {
@@ -56,39 +57,55 @@ export const DataProvider: React.FC<{
     if (add) {
       if (showData.indexOf(object) === -1) {
         setShowData((prevState) => [...prevState, object]);
+        setWarningShow(false);
+      } else {
+        setWarningShow(true);
       }
     } else {
       setShowData([object]);
       setPossibleRandom(ids);
-    }
-  };
-  const randomAddFunction = () => {
-    if (possibleRandom.length > 0) {
-      let randomNumber =
-        possibleRandom[Math.floor(Math.random() * possibleRandom.length)];
-      if (showData.indexOf(dataJSON[randomNumber - 1]) === -1) {
-        setShowData((prevState) => [...prevState, dataJSON[randomNumber - 1]]);
-        setPossibleRandom((prevState) =>
-          prevState.filter((number) => number !== randomNumber)
-        );
+      setWarningShow(false);
+      if (showData.indexOf(object) !== -1 ) {
+        setWarningShow(true);
       }
     }
   };
-  const randomSwitchFunction = () => {
-    setPossibleRandom(ids);
+
+  const randomFunction = (add: boolean) => {
+    if (!add) {
+      setPossibleRandom(ids);
+    }
     if (possibleRandom.length > 0) {
       let randomNumber =
         possibleRandom[Math.floor(Math.random() * possibleRandom.length)];
       setPossibleRandom((prevState) =>
         prevState.filter((number) => number !== randomNumber)
       );
-      setShowData([dataJSON[randomNumber - 1]]);
+      if (add) {
+        if (showData.indexOf(dataJSON[randomNumber - 1]) === -1) {
+          setShowData((prevState) => [
+            ...prevState,
+            dataJSON[randomNumber - 1],
+          ]);
+          setWarningShow(false);
+        } else {
+          setWarningShow(true);
+        }
+      } else {
+        setShowData([dataJSON[randomNumber - 1]]);
+        setWarningShow(false);
+      }
+      setPossibleRandom((prevState) =>
+        prevState.filter((number) => number !== randomNumber)
+      );
     }
   };
+
   const reset = () => {
     setShowData([]);
     setName("");
     setPossibleRandom(ids);
+    setWarningShow(false)
   };
 
   return (
@@ -96,14 +113,14 @@ export const DataProvider: React.FC<{
       value={{
         radio,
         data: dataJSON,
-        setRadio: setTextRadio,
+        setRadio,
         showData,
         validationFunction,
-        randomAddFunction,
-        randomSwitchFunction,
         name,
         setName,
         reset,
+        randomFunction,
+        warningShow,
       }}
     >
       {children}
