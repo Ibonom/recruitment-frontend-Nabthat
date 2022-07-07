@@ -62,12 +62,13 @@ export const DataProvider: React.FC<{
         setWarningShow(true);
       }
     } else {
+      setShowData([]);
+      if (showData.indexOf(object) !== -1) {
+        setWarningShow(true);
+      }
       setShowData([object]);
       setPossibleRandom(ids);
       setWarningShow(false);
-      if (showData.indexOf(object) !== -1 ) {
-        setWarningShow(true);
-      }
     }
   };
 
@@ -105,7 +106,7 @@ export const DataProvider: React.FC<{
     setShowData([]);
     setName("");
     setPossibleRandom(ids);
-    setWarningShow(false)
+    setWarningShow(false);
   };
 
   return (
