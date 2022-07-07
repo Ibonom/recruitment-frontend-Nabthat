@@ -62,13 +62,18 @@ export const DataProvider: React.FC<{
         setWarningShow(true);
       }
     } else {
-      setShowData([]);
-      if (showData.indexOf(object) !== -1) {
-        setWarningShow(true);
+      if (showData.length === 1) {
+        if (showData.indexOf(object) === -1) {
+          setShowData([object]);
+          setWarningShow(false);
+        } else {
+          setWarningShow(true);
+        }
+      } else {
+        setShowData([object]);
+        setWarningShow(false);
+        setPossibleRandom(ids);
       }
-      setShowData([object]);
-      setPossibleRandom(ids);
-      setWarningShow(false);
     }
   };
 
